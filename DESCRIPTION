@@ -1,0 +1,22 @@
+Package: mboxR
+Title: Converting an Mbox File into a Data_Frame
+Version: 0.1.0
+Authors@R: 
+    person(given = "JooYoung",
+           family = "Seo",
+           role = c("aut", "cre"),
+           email = "jooyoung@psu.edu")
+Description: Importing and converting an mbox file into a data_frame object.
+License: GPL-2
+VignetteBuilder: knitr
+URL: https://github.com/jooyoungseo/mboxR
+BugReports: https://github.com/jooyoungseo/mboxR/issues
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    reticulate,
+    readr,
+    tibble,
+    magrittr
+RoxygenNote: 6.1.0.9000
