@@ -17,7 +17,7 @@
 #' @examples
 
 #'\dontrun{
-#' library(mboxR)
+#' library(mboxr)
 #' # Feeding an mbox file through read_mbox function:
 #' data <- read_mbox("input.mbox", out = "output.csv")
 #' # Now you can use the imported file as a data_frame.
@@ -27,11 +27,11 @@
 #' @author JooYoung Seo (jooyoung@psu.edu)
 
 read_mbox <- 
-function(file, out=NULL) {   # Function starts:
+function(file = NULL, out=NULL) {   # Function starts:
 
 	if(reticulate::py_available(initialize=T)) {
 		if(reticulate::py_config()$version > 3) {
-			reticulate::source_python(system.file("python/mboxR.py", package="mboxR"))
+			reticulate::source_python(system.file("python/mboxr.py", package="mboxr"))
 			df = mbox_df(file)
 			df <- dplyr::data_frame(date = as.character(df$date), from = as.character(df$from), subject = as.character(df$subject), content = as.character(df$content))
 			if(!is.null(out)) {

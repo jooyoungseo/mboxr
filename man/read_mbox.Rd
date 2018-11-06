@@ -4,7 +4,7 @@
 \alias{read_mbox}
 \title{Converting an mbox file into a data_frame.}
 \usage{
-read_mbox(file, out = NULL)
+read_mbox(file = NULL, out = NULL)
 }
 \arguments{
 \item{file}{Input mbox file.}
@@ -25,7 +25,7 @@ See example below.
 }
 \examples{
 \dontrun{
-library(mboxR)
+library(mboxr)
 # Feeding an mbox file through read_mbox function:
 data <- read_mbox("input.mbox", out = "output.csv")
 # Now you can use the imported file as a data_frame.

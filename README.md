@@ -1,7 +1,7 @@
-mboxR
+mboxr
 =====
 
-The goal of mboxR is to allow R users to conveniently import an mbox
+The goal of mboxr is to allow R users to conveniently import an mbox
 file into R data\_frame for hands-on analyses in R environment.
 
 Installation
@@ -10,7 +10,7 @@ Installation
 Python Dependencies
 -------------------
 
-`mboxR` requires Python 3.x on your system Path.
+`mboxr` requires Python 3.x on your system Path.
 
 Please check whether Python 3.x is available on your system first, if
 not, install Python version 3.x beforehand.
@@ -18,7 +18,7 @@ not, install Python version 3.x beforehand.
 R Package Installation
 ----------------------
 
-`mboxR` has not been submitted to CRAN. Please install the package using
+`mboxr` has not been submitted to CRAN. Please install the package using
 `devtools` like below:
 
 ``` r
@@ -26,17 +26,17 @@ if(!require(devtools)) {
 install.packages("devtools")
 }
 
-devtools::install_github("jooyoungseo/mboxR")
+devtools::install_github("jooyoungseo/mboxr")
 ```
 
 Usage
 -----
 
-Please use `read_mbox()` function after loading `mboxR` library like
+Please use `read_mbox()` function after loading `mboxr` library like
 below:
 
 ``` r
-library(mboxR)
+library(mboxr)
 # Importing your mbox file into an R:
 data <- read_mbox("your_file.mbox")
 
