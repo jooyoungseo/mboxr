@@ -32,14 +32,15 @@ devtools::install_github("jooyoungseo/mboxR")
 Usage
 -----
 
-Please use `mbox()` function after loading `mboxR` library like below:
+Please use `read_mbox()` function after loading `mboxR` library like
+below:
 
 ``` r
 library(mboxR)
 # Importing your mbox file into an R:
-data <- mbox("your_file.mbox")
+data <- read_mbox("your_file.mbox")
 
 # Or, you can save your mbox file as a CSV file while assigning a data_frame variable at the same time like below :
-data <- mbox("your_file.mbox", "output.csv")
+data <- read_mbox("your_file.mbox", "output.csv")
 ## Find your "output.csv" file saved in your computer while freely using the imported data_frame in your R session!
 ```

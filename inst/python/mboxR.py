@@ -1,5 +1,5 @@
-import pandas as pd
-import mailbox
+from pandas import DataFrame
+from mailbox import mbox
 from email.header import decode_header
 
 def get_content(part):
@@ -14,9 +14,9 @@ def get_content(part):
 
 def mbox_df(infile):
     row = []
-    for message in mailbox.mbox(infile):
+    for message in mbox(infile):
         content = get_content(message)
         line = [message['date'], message['from'].strip('>').split('<')[-1], decode_header(message['subject'])[0][0], content]
         row.append(line)
-    df = pd.DataFrame(row, columns=['date', 'from', 'subject', 'content'])
+    df = DataFrame(row, columns=['date', 'from', 'subject', 'content'])
     return df
