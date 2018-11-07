@@ -32,7 +32,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 	if(reticulate::py_available(initialize=T)) {
 		if(reticulate::py_config()$version > 3) {
 			reticulate::source_python(system.file("python/mboxr.py", package="mboxr"))
-			df = mbox_df(file)
+			df <- mbox_df(file)
 			df <- dplyr::data_frame(date = as.character(df$date), from = as.character(df$from), subject = as.character(df$subject), content = as.character(df$content))
 			if(!is.null(out)) {
 				readr::write_csv(df, out)

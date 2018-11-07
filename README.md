@@ -18,8 +18,9 @@ not, install Python version 3.x beforehand.
 R Package Installation
 ----------------------
 
-`mboxr` has not been submitted to CRAN. Please install the package using
-`devtools` like below:
+### Development Version
+
+You can install the latest development version as follows:
 
 ``` r
 if(!require(devtools)) {
@@ -27,6 +28,15 @@ install.packages("devtools")
 }
 
 devtools::install_github("jooyoungseo/mboxr")
+```
+
+### Stable Version
+
+You can install the released version of ezpickr from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages('mboxr')
 ```
 
 Usage

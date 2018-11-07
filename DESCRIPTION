@@ -1,11 +1,10 @@
 Package: mboxr
 Title: Converting an Mbox File into a Data_Frame
 Version: 0.1.0
-Authors@R: 
-    person(given = "JooYoung",
-           family = "Seo",
-           role = c("aut", "cre"),
-           email = "jooyoung@psu.edu")
+Author: JooYoung Seo [aut, cre], Soyoung Choi [ctb]
+Maintainer: JooYoung Seo <jooyoung@psu.edu>
+Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu.edu"),
+    person("Soyoung Choi", email = "sxc940@psu.edu", role = "ctb"))
 Description: Importing and converting an mbox file into a data_frame object.
 License: GPL-2
 VignetteBuilder: knitr
@@ -23,4 +22,5 @@ RoxygenNote: 6.1.0.9000
 Suggests: 
     knitr,
     rmarkdown,
+    webshot,
     testthat
