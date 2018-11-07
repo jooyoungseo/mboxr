@@ -10,10 +10,11 @@ Installation
 Python Dependencies
 -------------------
 
-`mboxr` requires Python 3.x on your system Path.
+`mboxr` requires Anaconda Python environment on your system Path.
 
-Please check whether Python 3.x is available on your system first, if
-not, install Python version 3.x beforehand.
+If you have not installed Conda environment on your system, please
+[download and install Anaconda](https://www.anaconda.com/download/)
+(Python 3.6 or later is recommended).
 
 R Package Installation
 ----------------------

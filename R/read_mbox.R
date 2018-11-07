@@ -29,20 +29,36 @@
 read_mbox <- 
 function(file = NULL, out=NULL) {   # Function starts:
 
-	if(reticulate::py_available(initialize=T)) {
-		if(reticulate::py_config()$version > 3) {
-			reticulate::source_python(system.file("python/mboxr.py", package="mboxr"))
-			df <- mbox_df(file)
-			df <- dplyr::data_frame(date = as.character(df$date), from = as.character(df$from), subject = as.character(df$subject), content = as.character(df$content))
-			if(!is.null(out)) {
-				readr::write_csv(df, out)
-			}
-			return(df)
-		} else {
-			stop("Please use Python version 3.x instead of 2.x.")
+	envnm <- 'mboxr'
+
+	tryCatch({
+		if (!(envnm %in% reticulate::conda_list()$name)) {
+			reticulate::conda_create(envnm, packages = c("python=3.6", "pandas"), conda = "auto")
 		}
-	} else {
-		stop("Python has not been found in your system Path. Please install Python (Version 3.x) and add the installed directory to your system Path.")
+	},
+	error = function(e) {
+		stop("Need to install Anaconda from https://www.anaconda.com/download/.")
+	},
+	finally = {
+		reticulate::use_condaenv(envnm, required = TRUE)
+			if (!reticulate::py_module_available("pandas")) {
+				reticulate::conda_install(envnm, packages = c('pandas'))
+			}
+
+			if (!reticulate::py_module_available("mailbox")) {
+				reticulate::conda_install(envnm, packages = c('mailbox'))
+			}
+
+			if (!reticulate::py_module_available("email")) {
+				reticulate::conda_install(envnm, packages = c('email'))
+			}
+	})
+
+	df <- reticulate::py_run_file(system.file("python/mboxr.py", package="mboxr"))$mbox_df(file)
+	df <- dplyr::data_frame(date = as.character(df$date), from = as.character(df$from), subject = as.character(df$subject), content = as.character(df$content))
+	if(!is.null(out)) {
+		readr::write_csv(df, out)
 	}
+	return(df)
 
 }   # Function ends.
