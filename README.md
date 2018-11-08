@@ -1,6 +1,15 @@
 mboxr
 =====
 
+[![License: GPL
+v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![Travis build
+status](https://travis-ci.org/jooyoungseo/mboxr.svg?branch=master)](https://travis-ci.org/jooyoungseo/mboxr)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/jooyoungseo/mboxr?branch=master&svg=true)](https://ci.appveyor.com/project/jooyoungseo/mboxr)
+[![Codecov test
+coverage](https://codecov.io/gh/jooyoungseo/mboxr/branch/master/graph/badge.svg)](https://codecov.io/gh/jooyoungseo/mboxr?branch=master)
+
 The goal of mboxr is to allow R users to conveniently import an mbox
 file into R data\_frame for hands-on analyses in R environment.
 

@@ -1,3 +1,8 @@
+^docs$
+^_pkgdown\.yml$
+^codecov\.yml$
+^appveyor\.yml$
+^\.travis\.yml$
 ^CRAN-RELEASE$
 ^cran-comments\.md$
 ^README\.Rmd$
