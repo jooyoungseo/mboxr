@@ -62,5 +62,8 @@ data <- read_mbox("your_file.mbox")
 
 # Or, you can save your mbox file as a CSV file while assigning a tibble variable at the same time like below :
 data <- read_mbox("your_file.mbox", "output.csv")
+
+# You can merge all mbox files in your current directory into one tibble and save csv file for the integrated one:
+all_data <- merge_mbox_all(out = "all_merged_mbox.csv")
 ## Find your "output.csv" file saved in your computer while freely using the imported tibble in your R session!
 ```
