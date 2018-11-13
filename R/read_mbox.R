@@ -4,7 +4,7 @@
 #' @aliases read_mbox
 #' @keywords read_mbox
 
-#' @description Use this function for importing and converting an mbox file into a data_frame object.
+#' @description Use this function for importing and converting an mbox file into a tibble object.
 #' @export read_mbox
 #' @param file Input mbox file.
 #' @param out Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.
@@ -12,7 +12,7 @@
 #' @details
 #' See example below.
 
-#' @return data_frame object for the input mbox file will be returned.
+#' @return Tibble object for the input mbox file will be returned.
 
 #' @examples
 
@@ -20,7 +20,7 @@
 #' library(mboxr)
 #' # Feeding an mbox file through read_mbox function:
 #' data <- read_mbox("input.mbox", out = "output.csv")
-#' # Now you can use the imported file as a data_frame.
+#' # Now you can use the imported file as a tibble.
 #' str(data)
 #'}
 
@@ -28,6 +28,10 @@
 
 read_mbox <- 
 function(file = NULL, out=NULL) {   # Function starts:
+
+	if(is.null(file) || tools::file_ext(file) != "mbox") {
+		stop("Please pass an mbox file as the first argument.")
+	}
 
 	envnm <- 'mboxr'
 

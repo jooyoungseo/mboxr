@@ -12,10 +12,10 @@ read_mbox(file = NULL, out = NULL)
 \item{out}{Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.}
 }
 \value{
-data_frame object for the input mbox file will be returned.
+Tibble object for the input mbox file will be returned.
 }
 \description{
-Use this function for importing and converting an mbox file into a data_frame object.
+Use this function for importing and converting an mbox file into a tibble object.
 }
 \details{
 read_mbox
@@ -28,7 +28,7 @@ See example below.
 library(mboxr)
 # Feeding an mbox file through read_mbox function:
 data <- read_mbox("input.mbox", out = "output.csv")
-# Now you can use the imported file as a data_frame.
+# Now you can use the imported file as a tibble.
 str(data)
 }
 }

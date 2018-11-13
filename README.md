@@ -11,7 +11,7 @@ status](https://ci.appveyor.com/api/projects/status/github/jooyoungseo/mboxr?bra
 coverage](https://codecov.io/gh/jooyoungseo/mboxr/branch/master/graph/badge.svg)](https://codecov.io/gh/jooyoungseo/mboxr?branch=master)
 
 The goal of mboxr is to allow R users to conveniently import an mbox
-file into R data\_frame for hands-on analyses in R environment.
+file into R tibble for hands-on analyses in R environment.
 
 Installation
 ============
@@ -42,7 +42,7 @@ devtools::install_github("jooyoungseo/mboxr")
 
 ### Stable Version
 
-You can install the released version of ezpickr from
+You can install the released version of mboxr from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
@@ -60,7 +60,7 @@ library(mboxr)
 # Importing your mbox file into an R:
 data <- read_mbox("your_file.mbox")
 
-# Or, you can save your mbox file as a CSV file while assigning a data_frame variable at the same time like below :
+# Or, you can save your mbox file as a CSV file while assigning a tibble variable at the same time like below :
 data <- read_mbox("your_file.mbox", "output.csv")
-## Find your "output.csv" file saved in your computer while freely using the imported data_frame in your R session!
+## Find your "output.csv" file saved in your computer while freely using the imported tibble in your R session!
 ```

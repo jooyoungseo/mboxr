@@ -1,3 +1,9 @@
-# mboxR 0.1.0
+# mboxr 0.1.1
 
-* Initial release on GitHub.
+* A new function `merge_mbox_all()` is added for merging all available mbox files in the current active directory into one mbox file as a tibble object.
+
+
+# mboxr 0.1.0
+
+* Added a `NEWS.md` file to track changes to the package.
+* Initial release.

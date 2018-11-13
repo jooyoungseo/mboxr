@@ -1,11 +1,11 @@
 Package: mboxr
-Title: Converting an Mbox File into a Data_Frame
-Version: 0.1.0
+Title: Converting an Mbox File into a tibble
+Version: 0.1.1
 Author: JooYoung Seo [aut, cre], Soyoung Choi [ctb]
 Maintainer: JooYoung Seo <jooyoung@psu.edu>
 Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu.edu"),
     person("Soyoung Choi", email = "sxc940@psu.edu", role = "ctb"))
-Description: Importing and converting an mbox file into a data_frame object.
+Description: Importing and converting an mbox file into a tibble object.
 License: GPL-3
 VignetteBuilder: knitr
 URL: https://github.com/jooyoungseo/mboxr
@@ -17,7 +17,8 @@ Imports:
     reticulate,
     readr,
     tibble,
-    magrittr
+    magrittr,
+    purrr
 RoxygenNote: 6.1.0.9000
 Suggests: 
     knitr,
