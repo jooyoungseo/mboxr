@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_mbox.R
 \name{read_mbox}
 \alias{read_mbox}
-\title{Converting an mbox file into a data_frame.}
+\title{Converting an mbox file into a tibble data_frame.}
 \usage{
 read_mbox(file = NULL, out = NULL)
 }
@@ -24,15 +24,21 @@ read_mbox
 See example below.
 }
 \examples{
-\dontrun{
 library(mboxr)
 # Feeding an mbox file through read_mbox function:
-data <- read_mbox("input.mbox", out = "output.csv")
+test <- system.file("extdata", "test1.mbox", package = "mboxr")
+data <- read_mbox(test, out = "output.csv")
 # Now you can use the imported file as a tibble.
 str(data)
 }
+\references{
+\url{https://en.wikipedia.org/wiki/Mbox}
+
+\url{https://docs.python.org/3/library/mailbox.html}
+
+\url{https://www.anaconda.com/download/}
 }
 \author{
-JooYoung Seo (jooyoung@psu.edu)
+JooYoung Seo, \email{jooyoung@psu.edu}
 }
 \keyword{read_mbox}

@@ -1,5 +1,5 @@
 #' read_mbox
-#' @title Converting an mbox file into a data_frame.
+#' @title Converting an mbox file into a tibble data_frame.
 
 #' @aliases read_mbox
 #' @keywords read_mbox
@@ -15,16 +15,18 @@
 #' @return Tibble object for the input mbox file will be returned.
 
 #' @examples
-
-#'\dontrun{
 #' library(mboxr)
 #' # Feeding an mbox file through read_mbox function:
-#' data <- read_mbox("input.mbox", out = "output.csv")
+#' test <- system.file("extdata", "test1.mbox", package = "mboxr")
+#' data <- read_mbox(test, out = "output.csv")
 #' # Now you can use the imported file as a tibble.
 #' str(data)
-#'}
 
-#' @author JooYoung Seo (jooyoung@psu.edu)
+#' @author JooYoung Seo, \email{jooyoung@psu.edu}
+
+#' @references \url{https://en.wikipedia.org/wiki/Mbox}
+#' @references \url{https://docs.python.org/3/library/mailbox.html}
+#' @references \url{https://www.anaconda.com/download/}
 
 read_mbox <- 
 function(file = NULL, out=NULL) {   # Function starts:
@@ -59,7 +61,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 	})
 
 	df <- reticulate::py_run_file(system.file("python/mboxr.py", package="mboxr"))$mbox_df(file)
-	df <- dplyr::data_frame(date = as.character(df$date), from = as.character(df$from), subject = as.character(df$subject), content = as.character(df$content))
+	df <- tibble::tibble(date = as.character(df$date), from = as.character(df$from), to = as.character(df$to), subject = as.character(df$subject), content = as.character(df$content))
 	if(!is.null(out)) {
 		readr::write_csv(df, out)
 	}

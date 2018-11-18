@@ -16,7 +16,7 @@ def mbox_df(infile):
     row = []
     for message in mbox(infile):
         content = get_content(message)
-        line = [message['date'], message['from'].strip('>').split('<')[-1], decode_header(message['subject'])[0][0], content]
+        line = [message['date'], message['from'].strip('>').split('<')[-1], message['to'].strip('>').split('<')[-1], decode_header(message['subject'])[0][0], content]
         row.append(line)
-    df = DataFrame(row, columns=['date', 'from', 'subject', 'content'])
+    df = DataFrame(row, columns=['date', 'from', 'to', 'subject', 'content'])
     return df

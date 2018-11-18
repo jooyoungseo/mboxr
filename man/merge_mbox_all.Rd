@@ -4,9 +4,11 @@
 \alias{merge_mbox_all}
 \title{Merging all mbox files in current directory into one tibble.}
 \usage{
-merge_mbox_all(out = NULL)
+merge_mbox_all(path = ".", out = NULL)
 }
 \arguments{
+\item{path}{A character vector of full path names; the default corresponds to the working directory, \link[base]{getwd}. Tilde expansion (see \link[base]{path.expand}) is performed. Missing values will be ignored.}
+
 \item{out}{Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.}
 }
 \value{
@@ -22,15 +24,21 @@ merge_mbox_all
 See example below.
 }
 \examples{
-\dontrun{
 library(mboxr)
+test_path <- system.file("extdata", package = "mboxr")
 # Save your own csv file as an output if you need it:
-data <- merge_mbox_all(out = "output.csv")
-# Now you can use the imported file as a data_frame.
+data <- merge_mbox_all(path = test_path, out = "output.csv")
+# Now you can use the imported file as a tibble.
 str(data)
 }
+\references{
+\url{https://en.wikipedia.org/wiki/Mbox}
+
+\url{https://docs.python.org/3/library/mailbox.html}
+
+\url{https://www.anaconda.com/download/}
 }
 \author{
-JooYoung Seo (jooyoung@psu.edu)
+JooYoung Seo, \email{jooyoung@psu.edu}
 }
 \keyword{merge_mbox_all}

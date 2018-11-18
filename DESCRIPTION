@@ -13,7 +13,6 @@ BugReports: https://github.com/jooyoungseo/mboxr/issues
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    dplyr,
     reticulate,
     readr,
     tibble,
