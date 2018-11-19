@@ -31,14 +31,13 @@
 merge_mbox_all <-
 function(path = ".", out = NULL) {   # Function starts:
 
-	if(length(list.files(pattern = "(*.mbox)$")) > 0) {
-
+	if(length(list.files(path, pattern = "(*.mbox)$")) > 0) {
 		if(path != ".") {
 			current_wd <- getwd()
 			setwd(path)
 		}
 
-		multi_mbox <- list.files(pattern = "(*.mbox)$") %>% 
+		multi_mbox <- list.files(path, pattern = "(*.mbox)$") %>% 
 			purrr::map_df(~mboxr::read_mbox(.))
 
 		if(path != ".") {

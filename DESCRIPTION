@@ -1,5 +1,5 @@
 Package: mboxr
-Title: Converting an Mbox File into a tibble
+Title: Converting an Mbox File into a Tibble
 Version: 0.1.2
 Author: JooYoung Seo [aut, cre], Soyoung Choi [ctb]
 Maintainer: JooYoung Seo <jooyoung@psu.edu>
@@ -17,7 +17,8 @@ Imports:
     readr,
     tibble,
     magrittr,
-    purrr
+    purrr,
+    dplyr
 RoxygenNote: 6.1.0.9000
 Suggests: 
     knitr,

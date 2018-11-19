@@ -4,7 +4,7 @@
 \name{mboxr-package}
 \alias{mboxr}
 \alias{mboxr-package}
-\title{mboxr: Converting an Mbox File into a tibble}
+\title{mboxr: Converting an Mbox File into a Tibble}
 \description{
 Importing and converting an mbox file into a tibble object.
 }

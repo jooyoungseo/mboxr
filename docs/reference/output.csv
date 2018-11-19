@@ -1,0 +1,7 @@
+date,from,to,subject,content
+Fri Jul  8 12:08:34 2011,author@example.com,recipient@example.com,Sample message 1,"This is the body.
+>From (should be escaped).
+There are 3 lines.
+"
+Fri Jul  8 12:08:34 2011,author@example.com,recipient@example.com,Sample message 2,"This is the second body.
+"
