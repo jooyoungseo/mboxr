@@ -39,7 +39,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 
 	tryCatch({
 		if (!(envnm %in% reticulate::conda_list()$name)) {
-			reticulate::conda_create(envnm, packages = c("python=3.6", "pandas"), conda = "auto")
+			reticulate::conda_create(envnm, packages = c("python=3.6", "pandas=0.22"), conda = "auto")
 		}
 	},
 	error = function(e) {
@@ -48,7 +48,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 	finally = {
 		reticulate::use_condaenv(envnm, required = TRUE)
 			if (!reticulate::py_module_available("pandas")) {
-				reticulate::conda_install(envnm, packages = c('pandas'))
+				reticulate::conda_install(envnm, packages = c('pandas=0.22'))
 			}
 
 			if (!reticulate::py_module_available("mailbox")) {
