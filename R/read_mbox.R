@@ -15,12 +15,14 @@
 #' @return Tibble object for the input mbox file will be returned.
 
 #' @examples
+#' \donttest{
 #' library(mboxr)
 #' # Feeding an mbox file through read_mbox function:
 #' test <- system.file("extdata", "test1.mbox", package = "mboxr")
 #' data <- read_mbox(test, out = "output.csv")
 #' # Now you can use the imported file as a tibble.
 #' str(data)
+#' }
 
 #' @author JooYoung Seo, \email{jooyoung@psu.edu}
 

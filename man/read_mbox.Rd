@@ -24,12 +24,14 @@ read_mbox
 See example below.
 }
 \examples{
+\donttest{
 library(mboxr)
 # Feeding an mbox file through read_mbox function:
 test <- system.file("extdata", "test1.mbox", package = "mboxr")
 data <- read_mbox(test, out = "output.csv")
 # Now you can use the imported file as a tibble.
 str(data)
+}
 }
 \references{
 \url{https://en.wikipedia.org/wiki/Mbox}

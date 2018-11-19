@@ -24,12 +24,14 @@ merge_mbox_all
 See example below.
 }
 \examples{
+\donttest{
 library(mboxr)
 test_path <- system.file("extdata", package = "mboxr")
 # Save your own csv file as an output if you need it:
 data <- merge_mbox_all(path = test_path, out = "output.csv")
 # Now you can use the imported file as a tibble.
 str(data)
+}
 }
 \references{
 \url{https://en.wikipedia.org/wiki/Mbox}
