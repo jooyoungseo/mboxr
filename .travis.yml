@@ -17,5 +17,8 @@ before_install:
   - conda update -q conda
   # Useful for debugging any issues with conda
   - conda info -a
+  - conda create -q -n mboxr python=3.6 pandas
+  - source activate mboxr
+  - python setup.py install
 after_success:
   - Rscript -e 'covr::codecov()'
