@@ -60,7 +60,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 			}
 	})
 
-	df <- reticulate::py_run_file(system.file("python/mboxr.py", package="mboxr"))$mbox_df(file)
+	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"))$mbox_df(file)
 	df <- tibble::tibble(date = as.character(df$date), from = as.character(df$from), to = as.character(df$to), subject = as.character(df$subject), content = as.character(df$content))
 	if(!is.null(out)) {
 		readr::write_csv(df, out)
