@@ -19,9 +19,9 @@ Useful links:
 \author{
 \strong{Maintainer}: JooYoung Seo \email{jooyoung@psu.edu}
 
-Other contributors:
+Authors:
 \itemize{
-  \item Soyoung Choi \email{sxc940@psu.edu} [contributor]
+  \item Soyoung Choi \email{sxc940@psu.edu}
 }
 
 }

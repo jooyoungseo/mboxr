@@ -25,6 +25,7 @@
 #' }
 
 #' @author JooYoung Seo, \email{jooyoung@psu.edu}
+#' @author Soyoung Choi, \email{sxc940@psu.edu}
 
 #' @references \url{https://en.wikipedia.org/wiki/Mbox}
 #' @references \url{https://docs.python.org/3/library/mailbox.html}

@@ -1,10 +1,10 @@
 Package: mboxr
 Title: Converting an Mbox File into a Tibble
 Version: 0.1.2
-Author: JooYoung Seo [aut, cre], Soyoung Choi [ctb]
+Author: JooYoung Seo [aut, cre], Soyoung Choi [aut]
 Maintainer: JooYoung Seo <jooyoung@psu.edu>
 Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu.edu"),
-    person("Soyoung Choi", email = "sxc940@psu.edu", role = "ctb"))
+    person("Soyoung Choi", email = "sxc940@psu.edu", role = "aut"))
 Description: Importing and converting an mbox file into a tibble object.
 License: GPL-3
 VignetteBuilder: knitr
