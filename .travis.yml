@@ -19,5 +19,10 @@ before_install:
   - conda info -a
   - conda create -q -n mboxr python=3.6 pandas=0.22
   - source activate mboxr
+before_deploy: Rscript -e 'install.packages("pkgdown")'
+deploy:
+  provider: script
+  script: Rscript -e 'pkgdown::deploy_site_github()'
+  skip_cleanup: true
 after_success:
   - Rscript -e 'covr::codecov()'

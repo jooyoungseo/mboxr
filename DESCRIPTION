@@ -6,6 +6,7 @@ Maintainer: JooYoung Seo <jooyoung@psu.edu>
 Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu.edu"),
     person("Soyoung", "Choi", role = "aut", email = "sxc940@psu.edu"))
 Description: Importing and converting an mbox file into a tibble object.
+SystemRequirements: Anaconda (https://www.anaconda.com/download/)
 License: GPL-3
 VignetteBuilder: knitr
 URL: https://github.com/jooyoungseo/mboxr

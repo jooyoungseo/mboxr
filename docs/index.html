@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -78,7 +78,11 @@
 
       
       </header><div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
+    
+
+    
+    
 <div id="mboxr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#mboxr" class="anchor"></a>mboxr</h1></div>
@@ -102,56 +106,56 @@
 <h3 class="hasAnchor">
 <a href="#development-version" class="anchor"></a>Development Version</h3>
 <p>You can install the latest development version as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)) {</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">}</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jooyoungseo/mboxr"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(devtools)) {</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3">}</a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jooyoungseo/mboxr"</span>)</a></code></pre></div>
 </div>
 <div id="stable-version" class="section level3">
 <h3 class="hasAnchor">
 <a href="#stable-version" class="anchor"></a>Stable Version</h3>
 <p>You can install the released version of mboxr from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">'mboxr'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">'mboxr'</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>Please use <code><a href="reference/read_mbox.html">read_mbox()</a></code> function after loading <code>mboxr</code> library like below:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(mboxr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># Importing your mbox file into an R:</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">test &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"test1.mbox"</span>, <span class="dt">package =</span> <span class="st">"mboxr"</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_mbox.html">read_mbox</a></span>(test)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/str">str</a></span>(data)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':    2 obs. of  5 variables:</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  $ date   : chr  "Fri Jul  8 12:08:34 2011" "Fri Jul  8 12:08:34 2011"</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  $ from   : chr  "author@example.com" "author@example.com"</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  $ to     : chr  "recipient@example.com" "recipient@example.com"</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  $ subject: chr  "Sample message 1" "Sample message 2"</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  $ content: chr  "This is the body.\n&gt;From (should be escaped).\nThere are 3 lines.\n" "This is the second body.\n"</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co"># Or, you can save your mbox file as a CSV file while assigning a tibble variable at the same time like below:</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_mbox.html">read_mbox</a></span>(test, <span class="st">"output.csv"</span>)</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">data</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; # A tibble: 2 x 5</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;   date         from       to         subject    content                    </span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;                      </span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; 1 Fri Jul  8 ~ author@ex~ recipient~ Sample me~ "This is the body.\n&gt;From ~</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; 2 Fri Jul  8 ~ author@ex~ recipient~ Sample me~ "This is the second body.\~</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co"># You can merge all mbox files in your current directory or in any specified path into one tibble and save csv file for the integrated one:</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">test_path &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="dt">package =</span> <span class="st">"mboxr"</span>)</a>
-<a class="sourceLine" id="cb3-24" data-line-number="24">all_data &lt;-<span class="st"> </span><span class="kw"><a href="reference/merge_mbox_all.html">merge_mbox_all</a></span>(<span class="dt">path =</span> test_path, <span class="dt">out =</span> <span class="st">"all_merged_mbox.csv"</span>)</a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">## Find your "output.csv" file saved in your computer while freely using the imported tibble in your R session!</span></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">all_data</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt; # A tibble: 4 x 5</span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt;   date         from      to         subject      content                   </span></a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;                     </span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt; 1 Fri Jul  8 ~ author@e~ recipient~ Sample mess~ "This is the body.\n&gt;From~</span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt; 2 Fri Jul  8 ~ author@e~ recipient~ Sample mess~ "This is the second body.~</span></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt; 3 Sat Jul  9 ~ author@e~ recipient~ Another sam~ "R is the best!\nLet's us~</span></a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt; 4 Sun Jul  10~ author@e~ recipient~ The last sa~ "This is the last message</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(mboxr)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"># Importing your mbox file into an R:</span></a>
+<a class="sourceLine" id="cb3-3" title="3">test &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"test1.mbox"</span>, <span class="dt">package =</span> <span class="st">"mboxr"</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_mbox.html">read_mbox</a></span>(test)</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/str">str</a></span>(data)</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':    2 obs. of  5 variables:</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">#&gt;  $ date   : chr  "Fri Jul  8 12:08:34 2011" "Fri Jul  8 12:08:34 2011"</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt;  $ from   : chr  "author@example.com" "author@example.com"</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt;  $ to     : chr  "recipient@example.com" "recipient@example.com"</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt;  $ subject: chr  "Sample message 1" "Sample message 2"</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt;  $ content: chr  "This is the body.\n&gt;From (should be escaped).\nThere are 3 lines.\n" "This is the second body.\n"</span></a>
+<a class="sourceLine" id="cb3-12" title="12"></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co"># Or, you can save your mbox file as a CSV file while assigning a tibble variable at the same time like below:</span></a>
+<a class="sourceLine" id="cb3-14" title="14">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_mbox.html">read_mbox</a></span>(test, <span class="st">"output.csv"</span>)</a>
+<a class="sourceLine" id="cb3-15" title="15">data</a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="co">#&gt; # A tibble: 2 x 5</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt;   date         from       to         subject    content                    </span></a>
+<a class="sourceLine" id="cb3-18" title="18"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;                      </span></a>
+<a class="sourceLine" id="cb3-19" title="19"><span class="co">#&gt; 1 Fri Jul  8 ~ author@ex~ recipient~ Sample me~ "This is the body.\n&gt;From ~</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="co">#&gt; 2 Fri Jul  8 ~ author@ex~ recipient~ Sample me~ "This is the second body.\~</span></a>
+<a class="sourceLine" id="cb3-21" title="21"></a>
+<a class="sourceLine" id="cb3-22" title="22"><span class="co"># You can merge all mbox files in your current directory or in any specified path into one tibble and save csv file for the integrated one:</span></a>
+<a class="sourceLine" id="cb3-23" title="23">test_path &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="dt">package =</span> <span class="st">"mboxr"</span>)</a>
+<a class="sourceLine" id="cb3-24" title="24">all_data &lt;-<span class="st"> </span><span class="kw"><a href="reference/merge_mbox_all.html">merge_mbox_all</a></span>(<span class="dt">path =</span> test_path, <span class="dt">out =</span> <span class="st">"all_merged_mbox.csv"</span>)</a>
+<a class="sourceLine" id="cb3-25" title="25"><span class="co">## Find your "output.csv" file saved in your computer while freely using the imported tibble in your R session!</span></a>
+<a class="sourceLine" id="cb3-26" title="26">all_data</a>
+<a class="sourceLine" id="cb3-27" title="27"><span class="co">#&gt; # A tibble: 4 x 5</span></a>
+<a class="sourceLine" id="cb3-28" title="28"><span class="co">#&gt;   date         from      to         subject      content                   </span></a>
+<a class="sourceLine" id="cb3-29" title="29"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;                     </span></a>
+<a class="sourceLine" id="cb3-30" title="30"><span class="co">#&gt; 1 Fri Jul  8 ~ author@e~ recipient~ Sample mess~ "This is the body.\n&gt;From~</span></a>
+<a class="sourceLine" id="cb3-31" title="31"><span class="co">#&gt; 2 Fri Jul  8 ~ author@e~ recipient~ Sample mess~ "This is the second body.~</span></a>
+<a class="sourceLine" id="cb3-32" title="32"><span class="co">#&gt; 3 Sat Jul  9 ~ author@e~ recipient~ Another sam~ "R is the best!\nLet's us~</span></a>
+<a class="sourceLine" id="cb3-33" title="33"><span class="co">#&gt; 4 Sun Jul  10~ author@e~ recipient~ The last sa~ "This is the last message</span></a></code></pre></div>
 </div>
 </div>
   </div>
@@ -169,7 +173,8 @@
 <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
 </ul>
 </div>
 <div class="developers">
@@ -180,7 +185,7 @@
 </ul>
 </div>
 
-  <div class="dev-status">
+      <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="http://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a></li>
@@ -190,6 +195,7 @@
 </ul>
 </div>
 </div>
+
 </div>
 
 
@@ -198,7 +204,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
 </div>
       </footer>
 </div>
