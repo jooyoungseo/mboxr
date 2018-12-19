@@ -8,5 +8,6 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+* `tempdir()` has been used for the examples to demonstrate how to generate a CSV output.
 * Anaconda is added to SystemRequirements in the package description file.
 

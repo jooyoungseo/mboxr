@@ -25,6 +25,8 @@ See example below.
 }
 \examples{
 \donttest{
+# Changing working directory to temp for the demonstration purpose only.
+setwd(tempdir())
 library(mboxr)
 test_path <- system.file("extdata", package = "mboxr")
 # Save your own csv file as an output if you need it:

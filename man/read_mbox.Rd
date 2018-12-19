@@ -25,6 +25,8 @@ See example below.
 }
 \examples{
 \donttest{
+# Changing working directory to temp for the demonstration purpose only.
+setwd(tempdir())
 library(mboxr)
 # Feeding an mbox file through read_mbox function:
 test <- system.file("extdata", "test1.mbox", package = "mboxr")
