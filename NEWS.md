@@ -1,5 +1,8 @@
 # mboxr 0.1.3
 
+* "UTF-8" has been applied to test mbox and Python files.
+* Author field has been corrected in the Vignette.
+
 # mboxr 0.1.2
 
 * Example mbox files are added for testing purpose.
