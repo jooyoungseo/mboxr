@@ -1,6 +1,6 @@
 Package: mboxr
 Title: Converting an Mbox File into a Tibble
-Version: 0.1.2
+Version: 0.1.3
 Author: JooYoung Seo [aut, cre], Soyoung Choi [aut]
 Maintainer: JooYoung Seo <jooyoung@psu.edu>
 Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu.edu"),
