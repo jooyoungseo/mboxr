@@ -1,6 +1,6 @@
 ---
 title: "How to Use MboxR"
-author: "Vignette Author"
+author: "JooYoung Seo"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
