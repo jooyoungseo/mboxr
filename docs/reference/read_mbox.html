@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mboxr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
       </span>
     </div>
 
@@ -136,7 +136,7 @@
     </tr>
     <tr>
       <th>out</th>
-      <td><p>Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.</p></td>
+      <td><p>Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.</p></td>
     </tr>
     </table>
     
@@ -162,12 +162,13 @@
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>mboxr</span>)
 <span class='co'># Feeding an mbox file through read_mbox function:</span>
 <span class='no'>test</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"test1.mbox"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"mboxr"</span>)
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>read_mbox</span>(<span class='no'>test</span>, <span class='kw'>out</span> <span class='kw'>=</span> <span class='st'>"output.csv"</span>)
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>read_mbox</span>(<span class='no'>test</span>, <span class='kw'>out</span> <span class='kw'>=</span> <span class='st'>"output.Rda"</span>)
 <span class='co'># Now you can use the imported file as a tibble.</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	2 obs. of  5 variables:
-#&gt;  $ date   : chr  "Fri Jul  8 12:08:34 2011" "Fri Jul  8 12:08:34 2011"
-#&gt;  $ from   : chr  "author@example.com" "author@example.com"
-#&gt;  $ to     : chr  "recipient@example.com" "recipient@example.com"
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	2 obs. of  6 variables:
+#&gt;  $ date   : POSIXct, format: "2011-07-08 12:08:34" "2011-07-08 12:08:34"
+#&gt;  $ from   : chr  "Author &lt;author@example.com&gt;" "Author &lt;author@example.com&gt;"
+#&gt;  $ to     : chr  "Recipient &lt;recipient@example.com&gt;" "Recipient &lt;recipient@example.com&gt;"
+#&gt;  $ cc     : chr  NA NA
 #&gt;  $ subject: chr  "Sample message 1" "Sample message 2"
 #&gt;  $ content: chr  "This is the body.\n&gt;From (should be escaped).\nThere are 3 lines.\n" "This is the second body.\n"</div></pre>
   </div>

@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mboxr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
       </span>
     </div>
 
@@ -115,9 +115,21 @@
       <small>Source: <a href='https://github.com/jooyoungseo/mboxr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mboxr-014" class="section level1">
+<h1 class="page-header">
+<a href="#mboxr-014" class="anchor"></a>mboxr 0.1.4<small> Unreleased </small>
+</h1>
+<ul>
+<li>Underlying Python code has been modified to address some critical issues that has caused errors when parsing “From,” and “To” variables; this change will resolve any unexpected stops in <code><a href="../reference/read_mbox.html">read_mbox()</a></code> and <code><a href="../reference/merge_mbox_all.html">merge_mbox_all()</a></code> functions.</li>
+<li>
+<code><a href="../reference/read_mbox.html">read_mbox()</a></code> and <code><a href="../reference/merge_mbox_all.html">merge_mbox_all()</a></code> no longer saves an output as a CSV file since CSV format is not sufficient for handling a large amount of data and can even cause some issues; Rda file format is now supported instead.</li>
+<li>“cc” variable has newly been added to a returned tibble object for an mbox file.</li>
+<li>“date” variable is now automatically converted into <code><a href="http://lubridate.tidyverse.org/reference/as_date.html">lubridate::as_datetime()</a></code> object with the default timezone as UTC.</li>
+</ul>
+</div>
     <div id="mboxr-013" class="section level1">
 <h1 class="page-header">
-<a href="#mboxr-013" class="anchor"></a>mboxr 0.1.3<small> Unreleased </small>
+<a href="#mboxr-013" class="anchor"></a>mboxr 0.1.3<small> 2019-01-16 </small>
 </h1>
 <ul>
 <li>“UTF-8” has been applied to test mbox and Python files.</li>
@@ -157,6 +169,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#mboxr-014">0.1.4</a></li>
         <li><a href="#mboxr-013">0.1.3</a></li>
         <li><a href="#mboxr-012">0.1.2</a></li>
         <li><a href="#mboxr-011">0.1.1</a></li>

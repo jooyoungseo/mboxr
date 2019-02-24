@@ -11,6 +11,7 @@ The source codes below are tailored for Python 3.x and can be passed into R envi
 from pandas import DataFrame
 from mailbox import mbox
 from email.header import decode_header
+from email.utils import parsedate_to_datetime
 
 def get_content(part):
     content = ''
@@ -27,11 +28,11 @@ def mbox_df(infile):
         row = []
         for message in mbox(infile):
             content = get_content(message)
-            line = [message['date'], message['from'], message['to'], decode_header(message['subject'])[0][0], content]
+            line = [str(parsedate_to_datetime(message['date'])), message['from'], message['to'], message['Cc'], decode_header(message['subject'])[0][0], content]
             row.append(line)
     except Exception as e:
         print("Something wrong with your mbox file(s). Check the file(s) if it is formed correctly. Maybe the size is too big?\nThe specific error message from Python: ", e)
     finally:
-        df = DataFrame(row, columns=['date', 'from', 'to', 'subject', 'content'])
+        df = DataFrame(row, columns=['date', 'from', 'to', 'cc', 'subject', 'content'])
         return df
 

@@ -65,8 +65,10 @@ function(file = NULL, out=NULL) {   # Function starts:
 			}
 	})
 
-	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"))$mbox_df(file)
-	df <- tibble::tibble(date = as.character(df$date), from = as.character(df$from), to = as.character(df$to), subject = as.character(df$subject), content = as.character(df$content))
+	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"), convert = TRUE)$mbox_df(file)
+	df <- dplyr::na_if(tibble::tibble(date = as.character(df$date), from = as.character(df$from), to = as.character(df$to), cc = as.character(df$cc), subject = as.character(df$subject), content = as.character(df$content)), "NULL")
+	df$date <- lubridate::as_datetime(df$date)
+
 	if(!is.null(out)) {
 		save(df, file=out)
 	}
