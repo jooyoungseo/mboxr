@@ -27,7 +27,7 @@ def mbox_df(infile):
         row = []
         for message in mbox(infile):
             content = get_content(message)
-            line = [message['date'], message['from'].strip('>').split('<')[-1], message['to'].strip('>').split('<')[-1], decode_header(message['subject'])[0][0], content]
+            line = [message['date'], message['from'], message['to'], decode_header(message['subject'])[0][0], content]
             row.append(line)
     except Exception as e:
         print("Something wrong with your mbox file(s). Check the file(s) if it is formed correctly. Maybe the size is too big?\nThe specific error message from Python: ", e)

@@ -9,7 +9,7 @@ read_mbox(file = NULL, out = NULL)
 \arguments{
 \item{file}{Input mbox file.}
 
-\item{out}{Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.}
+\item{out}{Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.}
 }
 \value{
 Tibble object for the input mbox file will be returned.
@@ -30,7 +30,7 @@ setwd(tempdir())
 library(mboxr)
 # Feeding an mbox file through read_mbox function:
 test <- system.file("extdata", "test1.mbox", package = "mboxr")
-data <- read_mbox(test, out = "output.csv")
+data <- read_mbox(test, out = "output.Rda")
 # Now you can use the imported file as a tibble.
 str(data)
 }

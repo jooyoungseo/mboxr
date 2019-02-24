@@ -7,7 +7,7 @@
 #' @description Use this function for merging all mbox files into one tibble object.
 #' @export merge_mbox_all
 #' @param path A character vector of full path names; the default corresponds to the working directory, \link[base]{getwd}. Tilde expansion (see \link[base]{path.expand}) is performed. Missing values will be ignored.
-#' @param out Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.
+#' @param out Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.
 
 #' @details
 #' See example below.
@@ -20,8 +20,8 @@
 #' setwd(tempdir())
 #' library(mboxr)
 #' test_path <- system.file("extdata", package = "mboxr")
-#' # Save your own csv file as an output if you need it:
-#' data <- merge_mbox_all(path = test_path, out = "output.csv")
+#' # Save your own Rda file as an output if you need it:
+#' data <- merge_mbox_all(path = test_path, out = "output.Rda")
 #' # Now you can use the imported file as a tibble.
 #' str(data)
 #' }
@@ -50,7 +50,7 @@ function(path = ".", out = NULL) {   # Function starts:
 		}
 
 		if(!is.null(out)) {
-			readr::write_csv(multi_mbox, out)
+			save(multi_mbox, file=out)
 		}
 
 		return(multi_mbox)

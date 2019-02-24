@@ -7,7 +7,7 @@
 #' @description Use this function for importing and converting an mbox file into a tibble object.
 #' @export read_mbox
 #' @param file Input mbox file.
-#' @param out Output CSV file if you want to save. The default is NULL, which is not saving the output as a file.
+#' @param out Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.
 
 #' @details
 #' See example below.
@@ -21,7 +21,7 @@
 #' library(mboxr)
 #' # Feeding an mbox file through read_mbox function:
 #' test <- system.file("extdata", "test1.mbox", package = "mboxr")
-#' data <- read_mbox(test, out = "output.csv")
+#' data <- read_mbox(test, out = "output.Rda")
 #' # Now you can use the imported file as a tibble.
 #' str(data)
 #' }
@@ -68,7 +68,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"))$mbox_df(file)
 	df <- tibble::tibble(date = as.character(df$date), from = as.character(df$from), to = as.character(df$to), subject = as.character(df$subject), content = as.character(df$content))
 	if(!is.null(out)) {
-		readr::write_csv(df, out)
+		save(df, file=out)
 	}
 	return(df)
 

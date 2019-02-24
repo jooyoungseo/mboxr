@@ -15,15 +15,13 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     reticulate,
-    readr,
     tibble,
     magrittr,
     purrr,
     dplyr
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1.9000
 Suggests: 
     knitr,
     rmarkdown,
-    webshot,
     testthat,
     covr
