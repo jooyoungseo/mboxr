@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: JooYoung Seo \email{jooyoung@psu.edu}
+\strong{Maintainer}: JooYoung Seo \email{jooyoung@psu.edu} (0000-0002-4064-6012)
 
 Authors:
 \itemize{

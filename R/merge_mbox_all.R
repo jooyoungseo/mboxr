@@ -7,7 +7,7 @@
 #' @description Use this function for merging all mbox files into one tibble object.
 #' @export merge_mbox_all
 #' @param path A character vector of full path names; the default corresponds to the working directory, \link[base]{getwd}. Tilde expansion (see \link[base]{path.expand}) is performed. Missing values will be ignored.
-#' @param out Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.
+#' @param file Output RDS file if you want to save. The default is NULL, which is not saving the output as a file.
 
 #' @details
 #' See example below.
@@ -20,8 +20,8 @@
 #' setwd(tempdir())
 #' library(mboxr)
 #' test_path <- system.file("extdata", package = "mboxr")
-#' # Save your own Rda file as an output if you need it:
-#' data <- merge_mbox_all(path = test_path, out = "output.Rda")
+#' # Save your own RDS file as an output if you need it:
+#' data <- merge_mbox_all(path = test_path, file = "output.rds")
 #' # Now you can use the imported file as a tibble.
 #' str(data)
 #' }
@@ -34,7 +34,7 @@
 #' @references \url{https://www.anaconda.com/download/}
 
 merge_mbox_all <-
-function(path = ".", out = NULL) {   # Function starts:
+function(path = ".", file = NULL) {   # Function starts:
 
 	if(length(list.files(path, pattern = "(*.mbox)$")) > 0) {
 		if(path != ".") {
@@ -49,9 +49,16 @@ function(path = ".", out = NULL) {   # Function starts:
 			setwd(current_wd)
 		}
 
-		if(!is.null(out)) {
-			save(multi_mbox, file=out)
+	if(!is.null(file)) {
+		fileExt <- tolower(tools::file_ext(file))
+		if(fileExt == "") {
+			saveRDS(multi_mbox, file = paste0(file, ".rds"))
+		} else if(fileExt == "rds") {
+			saveRDS(multi_mbox, file = file)
+		} else {
+			warning("Something is wrong with your output file name. Currently 'RDS' format is only supported.")
 		}
+	}
 
 		return(multi_mbox)
 	} else {

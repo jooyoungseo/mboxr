@@ -6,8 +6,8 @@
 
 #' @description Use this function for importing and converting an mbox file into a tibble object.
 #' @export read_mbox
-#' @param file Input mbox file.
-#' @param out Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.
+#' @param mbox Input mbox file.
+#' @param file Output RDS file if you want to save. The default is NULL, which is not saving the output as a file.
 
 #' @details
 #' See example below.
@@ -21,7 +21,7 @@
 #' library(mboxr)
 #' # Feeding an mbox file through read_mbox function:
 #' test <- system.file("extdata", "test1.mbox", package = "mboxr")
-#' data <- read_mbox(test, out = "output.Rda")
+#' data <- read_mbox(mbox = test, file = "output.rds")
 #' # Now you can use the imported file as a tibble.
 #' str(data)
 #' }
@@ -34,17 +34,17 @@
 #' @references \url{https://www.anaconda.com/download/}
 
 read_mbox <- 
-function(file = NULL, out=NULL) {   # Function starts:
+function(mbox = NULL, file = NULL) {   # Function starts:
 
-	if(is.null(file) || tools::file_ext(file) != "mbox") {
-		stop("Please pass an mbox file as the first argument.")
+	if(is.null(mbox) || tools::file_ext(mbox) != "mbox") {
+		stop("Please pass an mbox file for the first argument.")
 	}
 
 	envnm <- 'mboxr'
 
 	tryCatch({
 		if (!(envnm %in% reticulate::conda_list()$name)) {
-			reticulate::conda_create(envnm, packages = c("python=3.6", "pandas=0.22"), conda = "auto")
+			reticulate::conda_create(envnm, packages = c("python=3.7.3", "pandas"), conda = "auto")
 		}
 	},
 	error = function(e) {
@@ -53,7 +53,7 @@ function(file = NULL, out=NULL) {   # Function starts:
 	finally = {
 		reticulate::use_condaenv(envnm, required = TRUE)
 			if (!reticulate::py_module_available("pandas")) {
-				reticulate::conda_install(envnm, packages = c('pandas=0.22'))
+				reticulate::conda_install(envnm, packages = c('pandas'))
 			}
 
 			if (!reticulate::py_module_available("mailbox")) {
@@ -65,12 +65,19 @@ function(file = NULL, out=NULL) {   # Function starts:
 			}
 	})
 
-	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"), convert = TRUE)$mbox_df(file)
-	df <- dplyr::na_if(tibble::tibble(date = as.character(df$date), from = as.character(df$from), to = as.character(df$to), cc = as.character(df$cc), subject = as.character(df$subject), content = as.character(df$content)), "NULL")
+	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"), convert = TRUE)$mbox_df(mbox)
+	df <- dplyr::na_if(tibble::tibble(date = as.character(df$date), message_ID = as.character(df$message_ID), in_reply_to = as.character(df$in_reply_to), references = as.character(df$references), from = as.character(df$from), to = as.character(df$to), cc = as.character(df$cc), subject = as.character(df$subject), content = as.character(df$content)), "NULL")
 	df$date <- lubridate::as_datetime(df$date)
 
-	if(!is.null(out)) {
-		save(df, file=out)
+	if(!is.null(file)) {
+		fileExt <- tolower(tools::file_ext(file))
+		if(fileExt == "") {
+			saveRDS(df, file = paste0(file, ".rds"))
+		} else if(fileExt == "rds") {
+			saveRDS(df, file = file)
+		} else {
+			warning("Something is wrong with your output file name. Currently 'RDS' format is only supported.")
+		}
 	}
 	return(df)
 

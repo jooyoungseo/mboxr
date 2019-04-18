@@ -80,9 +80,9 @@ data
 # ~ 'This is the bod~ > 2 2011-07-08 12:08:34 Author <~ Recipient~ <NA>
 # Sample ~ 'This is the sec~
 
-# Or, you can save your mbox file as an Rda file while assigning a tibble
+# Or, you can save your mbox file as an RDS file while assigning a tibble
 # variable at the same time like below:
-data <- read_mbox(test, "output.Rda")
+data <- read_mbox(mbox = test, file = "output.rds")
 data
 # > # A tibble: 2 x 6 > date from to cc subject content > <dttm> <chr> <chr>
 # <chr> <chr> <chr> > 1 2011-07-08 12:08:34 Author <~ Recipient~ <NA> Sample
@@ -90,10 +90,10 @@ data
 # Sample ~ 'This is the sec~
 
 # You can merge all mbox files in your current directory or in any specified
-# path into one tibble and save as an Rda file for the integrated one:
+# path into one tibble and save as an RDS file for the integrated one:
 test_path <- system.file("extdata", package = "mboxr")
-all_data <- merge_mbox_all(path = test_path, out = "all_merged_mbox.Rda")
-## Find your 'output.Rda' file saved in your working directory while freely
+all_data <- merge_mbox_all(path = test_path, file = "all_merged_mbox.rds")
+## Find your 'output.rds' file saved in your working directory while freely
 ## using the imported tibble in your R session!
 
 all_data

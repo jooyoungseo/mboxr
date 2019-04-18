@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
 """mboxR
 
@@ -28,11 +28,11 @@ def mbox_df(infile):
         row = []
         for message in mbox(infile):
             content = get_content(message)
-            line = [str(parsedate_to_datetime(message['date'])), message['from'], message['to'], message['Cc'], decode_header(message['subject'])[0][0], content]
+            line = [str(parsedate_to_datetime(message['date'])), message['Message-ID'], message['In-Reply-To'], message['References'], message['from'], message['to'], message['Cc'], decode_header(message['subject'])[0][0], content]
             row.append(line)
     except Exception as e:
-        print("Something wrong with your mbox file(s). Check the file(s) if it is formed correctly. Maybe the size is too big?\nThe specific error message from Python: ", e)
+        print("Something wrong with your mbox file: ", infile, ". Check the file(s) if it is formed correctly. Maybe 'From ' in the mail body has not been correctly escaped as '>From '. Refer to the following resource:\nhttps://pymotw.com/3/mailbox/\nThe specific error message from Python: ", e, sep="")
     finally:
-        df = DataFrame(row, columns=['date', 'from', 'to', 'cc', 'subject', 'content'])
+        df = DataFrame(row, columns=['date', 'message_ID', 'in_reply_to', 'references', 'from', 'to', 'cc', 'subject', 'content'])
         return df
 

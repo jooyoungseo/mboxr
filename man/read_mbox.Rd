@@ -4,12 +4,12 @@
 \alias{read_mbox}
 \title{Converting an mbox file into a tibble data_frame.}
 \usage{
-read_mbox(file = NULL, out = NULL)
+read_mbox(mbox = NULL, file = NULL)
 }
 \arguments{
-\item{file}{Input mbox file.}
+\item{mbox}{Input mbox file.}
 
-\item{out}{Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.}
+\item{file}{Output RDS file if you want to save. The default is NULL, which is not saving the output as a file.}
 }
 \value{
 Tibble object for the input mbox file will be returned.
@@ -30,7 +30,7 @@ setwd(tempdir())
 library(mboxr)
 # Feeding an mbox file through read_mbox function:
 test <- system.file("extdata", "test1.mbox", package = "mboxr")
-data <- read_mbox(test, out = "output.Rda")
+data <- read_mbox(mbox = test, file = "output.rds")
 # Now you can use the imported file as a tibble.
 str(data)
 }
