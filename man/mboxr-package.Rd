@@ -21,7 +21,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Soyoung Choi \email{sxc940@psu.edu}
+  \item Soyoung Choi \email{sxc940@psu.edu} (0000-0002-0998-3352)
 }
 
 }
