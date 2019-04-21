@@ -5,6 +5,8 @@ mboxr
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mboxr)](https://cran.r-project.org/package=mboxr)
+[![Total
+Downloads](https://cranlogs.r-pkg.org/badges/grand-total/mboxr?color=orange)](https://cranlogs.r-pkg.org/badges/grand-total/mboxr)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 [![Travis build

@@ -16,7 +16,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -63,7 +64,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mboxr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -71,7 +72,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -98,7 +99,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/jooyoungseo/mboxr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -125,18 +126,18 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>read_mbox</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>out</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>read_mbox</span>(<span class='kw'>mbox</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
+      <th>mbox</th>
       <td><p>Input mbox file.</p></td>
     </tr>
     <tr>
-      <th>out</th>
-      <td><p>Output Rda file if you want to save. The default is NULL, which is not saving the output as a file.</p></td>
+      <th>file</th>
+      <td><p>Output RDS file if you want to save. The default is NULL, which is not saving the output as a file.</p></td>
     </tr>
     </table>
     
@@ -162,15 +163,18 @@
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>mboxr</span>)
 <span class='co'># Feeding an mbox file through read_mbox function:</span>
 <span class='no'>test</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"test1.mbox"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"mboxr"</span>)
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>read_mbox</span>(<span class='no'>test</span>, <span class='kw'>out</span> <span class='kw'>=</span> <span class='st'>"output.Rda"</span>)
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>read_mbox</span>(<span class='kw'>mbox</span> <span class='kw'>=</span> <span class='no'>test</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"output.rds"</span>)
 <span class='co'># Now you can use the imported file as a tibble.</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	2 obs. of  6 variables:
-#&gt;  $ date   : POSIXct, format: "2011-07-08 12:08:34" "2011-07-08 12:08:34"
-#&gt;  $ from   : chr  "Author &lt;author@example.com&gt;" "Author &lt;author@example.com&gt;"
-#&gt;  $ to     : chr  "Recipient &lt;recipient@example.com&gt;" "Recipient &lt;recipient@example.com&gt;"
-#&gt;  $ cc     : chr  NA NA
-#&gt;  $ subject: chr  "Sample message 1" "Sample message 2"
-#&gt;  $ content: chr  "This is the body.\n&gt;From (should be escaped).\nThere are 3 lines.\n" "This is the second body.\n"</div></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/str'>str</a></span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	2 obs. of  9 variables:
+#&gt;  $ date       : POSIXct, format: "2011-07-08 12:08:34" "2011-07-08 12:08:34"
+#&gt;  $ message_ID : chr  NA NA
+#&gt;  $ in_reply_to: chr  NA NA
+#&gt;  $ references : chr  NA NA
+#&gt;  $ from       : chr  "Author &lt;author@example.com&gt;" "Author &lt;author@example.com&gt;"
+#&gt;  $ to         : chr  "Recipient &lt;recipient@example.com&gt;" "Recipient &lt;recipient@example.com&gt;"
+#&gt;  $ cc         : chr  NA NA
+#&gt;  $ subject    : chr  "Sample message 1" "Sample message 2"
+#&gt;  $ content    : chr  "This is the body.\n&gt;From (should be escaped).\nThere are 3 lines.\n" "This is the second body.\n"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
