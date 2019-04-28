@@ -37,11 +37,11 @@ For this package, I have implemented [**mailbox.mbox**](https://docs.python.org/
 You can install the latest development version as follows:
 
 ```{r, eval=FALSE}
-if(!require(devtools)) {
-install.packages("devtools")
+if(!require(remotes)) {
+install.packages("remotes")
 }
 
-devtools::install_github("jooyoungseo/mboxr")
+remotes::install_github("jooyoungseo/mboxr")
 ```
 
 ### Stable Version
@@ -56,7 +56,7 @@ install.packages('mboxr')
 
 Please use `read_mbox()` function after loading `mboxr` library like below:
 
-```{r test, tidy=TRUE, eval=FALSE}
+```{r test, eval=FALSE}
 library(mboxr)
 # Importing your mbox file into an R:
 test <- system.file("extdata", "test1.mbox", package = "mboxr")
