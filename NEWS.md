@@ -1,4 +1,8 @@
+
 # mboxr (development version)
+
+* Non-ASCII decoding issue in the subject line has been resolved; you will no longer see `<environment>` for any non-ASCII subjects (thanks @carlmcqueen, #1).
+
 
 # mboxr 0.1.5
 
