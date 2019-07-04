@@ -1,3 +1,5 @@
+# mboxr (development version)
+
 # mboxr 0.1.5
 
 * A functionality of saving an mbox file object as an Rda file in both `read_mbox()` and `merge_mbox_all()` has been replaced with saving it as an RDS.
