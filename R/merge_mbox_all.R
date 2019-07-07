@@ -43,7 +43,7 @@ function(path = ".", file = NULL) {   # Function starts:
 		}
 
 		multi_mbox <- list.files(path, pattern = "(*.mbox)$") %>% 
-			purrr::map_df(~purrrogress::with_progress(mboxr::read_mbox(.), type='txt'))
+			purrr::map_df(~mboxr::read_mbox(.))
 
 		if(path != ".") {
 			setwd(current_wd)
