@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mboxr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.6</span>
       </span>
     </div>
 
@@ -167,9 +167,18 @@
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>mboxr</span>)
 <span class='no'>test_path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"mboxr"</span>)
 <span class='co'># Save your own RDS file as an output if you need it:</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>merge_mbox_all</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='no'>test_path</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"output.rds"</span>)</div><div class='output co'>#&gt; <span class='error'>Error: Argument 1 must be a data frame or a named atomic vector, not a function</span></div><div class='input'><span class='co'># Now you can use the imported file as a tibble.</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; function (..., list = character(), package = NULL, lib.loc = NULL, verbose = getOption("verbose"), 
-#&gt;     envir = .GlobalEnv, overwrite = TRUE)  </div></pre>
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>merge_mbox_all</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='no'>test_path</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"output.rds"</span>)
+<span class='co'># Now you can use the imported file as a tibble.</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':	4 obs. of  9 variables:
+#&gt;  $ date       : POSIXct, format: "2011-07-08 12:08:34" "2011-07-08 12:08:34" ...
+#&gt;  $ message_ID : chr  NA NA NA NA
+#&gt;  $ in_reply_to: chr  NA NA NA NA
+#&gt;  $ references : chr  NA NA NA NA
+#&gt;  $ from       : chr  "Author &lt;author@example.com&gt;" "Author &lt;author@example.com&gt;" "Author &lt;author@example.com&gt;" "Author &lt;author@example.com&gt;"
+#&gt;  $ to         : chr  "Recipient &lt;recipient@example.com&gt;" "Recipient &lt;recipient@example.com&gt;" "Recipient &lt;recipient@example.com&gt;" "Recipient &lt;recipient@example.com&gt;"
+#&gt;  $ cc         : chr  NA NA NA NA
+#&gt;  $ subject    : chr  "Sample message 1" "Sample message 2" "Another sample message" "The last sample message."
+#&gt;  $ content    : chr  "This is the body.\n&gt;From (should be escaped).\nThere are 3 lines.\n" "This is the second body.\n" "R is the best!\nLet's use R!\nGood bye.\n" "This is the last message.\nGood luck!!\n"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
