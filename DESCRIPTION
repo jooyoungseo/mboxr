@@ -5,7 +5,7 @@ Authors@R: c(person("JooYoung", "Seo", role=c("aut", "cre"), email="jooyoung@psu
     person("Soyoung", "Choi", role = "aut", email = "sxc940@psu.edu", comment = c(ORCID = "0000-0002-0998-3352")))
 Description: Importing and converting an mbox file into a tibble object.
 SystemRequirements: Anaconda (https://www.anaconda.com/download/)
-License: GPL-3
+License: GPL-3 + file LICENSE
 VignetteBuilder: knitr
 URL: https://github.com/jooyoungseo/mboxr
 BugReports: https://github.com/jooyoungseo/mboxr/issues
@@ -17,7 +17,8 @@ Imports:
     magrittr,
     purrr,
     dplyr,
-    lubridate
+    lubridate,
+    stringr
 RoxygenNote: 6.1.1.9000
 Suggests: 
     knitr,

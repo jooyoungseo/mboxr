@@ -66,9 +66,12 @@ function(mbox = NULL, file = NULL) {   # Function starts:
 	})
 
 	df <- reticulate::import_from_path(module = "mboxR", path = system.file("python", package="mboxr"), convert = TRUE)$mbox_df(mbox)
-	df <- dplyr::na_if(tibble::tibble(date = as.character(df$date), message_ID = as.character(df$message_ID), in_reply_to = as.character(df$in_reply_to), references = as.character(df$references), from = as.character(df$from), to = as.character(df$to), cc = as.character(df$cc), subject = as.character(df$subject), content = as.character(df$content)), "NULL")
-	df$date <- lubridate::as_datetime(df$date)
-
+	df <- dplyr::na_if(tibble::tibble(date = as.character(df$date), message_ID = as.character(df$message_ID), in_reply_to = as.character(df$in_reply_to), references = as.character(df$references), from = as.character(df$from), to = as.character(df$to), cc = as.character(df$cc), subject = as.character(df$subject), content = as.character(df$content)), "NULL") %>%
+	dplyr::mutate(date = lubridate::as_datetime(df$date)) %>%
+	dplyr::mutate(num_discussants = (1+stringr::str_count(df$references, "@")), num_discussants = ifelse(is.na(df$num_discussants), 1, df$num_discussants)) %>%
+	dplyr::mutate(weekday = lubridate::wday(df$date, label = TRUE)) %>%
+	dplyr::arrange(date)
+	
 	if(!is.null(file)) {
 		fileExt <- tolower(tools::file_ext(file))
 		if(fileExt == "") {
@@ -76,7 +79,7 @@ function(mbox = NULL, file = NULL) {   # Function starts:
 		} else if(fileExt == "rds") {
 			saveRDS(df, file = file)
 		} else {
-			warning("Something is wrong with your output file name. Currently 'RDS' format is only supported.")
+			warning("Something is wrong with your output file name. Currently only 'RDS' format is supported.")
 		}
 	}
 	return(df)
