@@ -1,3 +1,9 @@
+# mboxr 0.2.0
+
+* `num_discussants` and `weekday` columns have been added to a tibble object created by `read_mbox()` function.
+* Now the returned tibble object is automatically arranged by date column in the increasing order.
+
+
 # mboxr 0.1.6
 
 * Non-ASCII decoding issue in the subject line has been resolved; you will no longer see `<environment>` for any non-ASCII subjects (thanks @carlmcqueen, #1).

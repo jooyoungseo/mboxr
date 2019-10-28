@@ -1,10 +1,10 @@
 ^LICENSE\.md$
-^docs$
-^_pkgdown\.yml$
 ^codecov\.yml$
+^README\.Rmd$
 ^appveyor\.yml$
 ^\.travis\.yml$
 ^CRAN-RELEASE$
 ^cran-comments\.md$
-^README\.Rmd$
-^README-.*\.png$
+^docs$
+^_pkgdown\.yml$
+^build\.bat$

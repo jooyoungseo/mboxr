@@ -1,12 +1,13 @@
 ## Test environments
-* local OS X install, R 3.6.0
-* ubuntu 14.04 (on travis-ci), R 3.6.0
-* win-builder (devel and release)
+* local R installation, R 3.6.1
+* ubuntu 16.04 (on travis-ci), R 3.6.1
+* win-builder (devel)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
 
-# mboxr 0.1.6
+# mboxr 0.2.0
 
-* Non-ASCII decoding issue in the subject line has been resolved; you will no longer see `<environment>` for any non-ASCII subjects.
+* `num_discussants` and `weekday` columns have been added to a tibble object created by `read_mbox()` function.
+* Now the returned tibble object is automatically arranged by date column in the increasing order.
