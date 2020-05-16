@@ -1,3 +1,8 @@
+# mboxr (development version)
+
+* Cleaned up source code indents for better readability.
+
+
 # mboxr 0.2.0
 
 * `num_discussants` and `weekday` columns have been added to a tibble object created by `read_mbox()` function.
