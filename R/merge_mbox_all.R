@@ -25,7 +25,7 @@
 #' # Now you can use the imported file as a tibble.
 #' str(data)
 #' }
-
+#'
 #' @author JooYoung Seo, \email{jooyoung@psu.edu}
 #' @author Soyoung Choi, \email{sxc940@psu.edu}
 
@@ -34,34 +34,34 @@
 #' @references \url{https://www.anaconda.com/download/}
 
 merge_mbox_all <-
-function(path = ".", file = NULL) {   # Function starts:
+  function(path = ".", file = NULL) { # Function starts:
 
-	if(length(list.files(path, pattern = "(*.mbox)$")) > 0) {
-		if(path != ".") {
-			current_wd <- getwd()
-			setwd(path)
-		}
+    if (length(list.files(path, pattern = "(*.mbox)$")) > 0) {
+      if (path != ".") {
+        current_wd <- getwd()
+        setwd(path)
+      }
 
-		multi_mbox <- list.files(path, pattern = "(*.mbox)$") %>% 
-			purrr::map_df(~mboxr::read_mbox(.))
+      multi_mbox <- list.files(path, pattern = "(*.mbox)$") %>%
+        purrr::map_df(~ mboxr::read_mbox(.))
 
-		if(path != ".") {
-			setwd(current_wd)
-		}
+      if (path != ".") {
+        setwd(current_wd)
+      }
 
-	if(!is.null(file)) {
-		fileExt <- tolower(tools::file_ext(file))
-		if(fileExt == "") {
-			saveRDS(multi_mbox, file = paste0(file, ".rds"))
-		} else if(fileExt == "rds") {
-			saveRDS(multi_mbox, file = file)
-		} else {
-			warning("Something is wrong with your output file name. Currently 'RDS' format is only supported.")
-		}
-	}
+      if (!is.null(file)) {
+        fileExt <- tolower(tools::file_ext(file))
+        if (fileExt == "") {
+          saveRDS(multi_mbox, file = paste0(file, ".rds"))
+        } else if (fileExt == "rds") {
+          saveRDS(multi_mbox, file = file)
+        } else {
+          warning("Something is wrong with your output file name. Currently 'RDS' format is only supported.")
+        }
+      }
 
-		return(multi_mbox)
-	} else {
-		stop("No mbox file is found in the current directory.")
-	}
-}   # Function ends.
+      return(multi_mbox)
+    } else {
+      stop("No mbox file is found in the current directory.")
+    }
+  } # Function ends.
