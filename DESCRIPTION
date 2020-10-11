@@ -19,8 +19,9 @@ Imports:
     dplyr,
     lubridate,
     stringr,
-    tidyr
-RoxygenNote: 6.1.99.9001
+    tidyr,
+    withr
+RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,

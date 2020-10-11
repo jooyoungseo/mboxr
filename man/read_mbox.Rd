@@ -26,14 +26,16 @@ See example below.
 \examples{
 \donttest{
 # Changing working directory to temp for the demonstration purpose only.
-setwd(tempdir())
-library(mboxr)
-# Feeding an mbox file through read_mbox function:
-test <- system.file("extdata", "test1.mbox", package = "mboxr")
-data <- read_mbox(mbox = test, file = "output.rds")
-# Now you can use the imported file as a tibble.
-str(data)
+withr::with_tempdir(code = {
+  library(mboxr)
+  # Feeding an mbox file through read_mbox function:
+  test <- system.file("extdata", "test1.mbox", package = "mboxr")
+  data <- read_mbox(mbox = test, file = "output.rds")
+  # Now you can use the imported file as a tibble.
+  str(data)
+})
 }
+
 }
 \references{
 \url{https://en.wikipedia.org/wiki/Mbox}

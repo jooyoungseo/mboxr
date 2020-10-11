@@ -34,6 +34,7 @@ data <- merge_mbox_all(path = test_path, file = "output.rds")
 # Now you can use the imported file as a tibble.
 str(data)
 }
+
 }
 \references{
 \url{https://en.wikipedia.org/wiki/Mbox}
