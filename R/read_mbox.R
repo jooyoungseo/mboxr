@@ -86,5 +86,6 @@ read_mbox <-
         warning("Something is wrong with your output file name. Currently only 'RDS' format is supported.")
       }
     }
+    class(df) <- c("mbox_df", class(df))
     return(df)
   } # Function ends.

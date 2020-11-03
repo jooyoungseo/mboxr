@@ -61,6 +61,7 @@ merge_mbox_all <-
         }
       }
 
+class(multi_mbox) <- c("mbox_df", class(multi_mbox))
       return(multi_mbox)
     } else {
       stop("No mbox file is found in the current directory.")
