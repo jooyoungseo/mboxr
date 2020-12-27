@@ -30,13 +30,13 @@
 #' @author Soyoung Choi, \email{sxc940@psu.edu}
 
 num_thread <- function(mbox_df) {
-if(!inherits(mbox_df, "mbox_df")) {
-stop("You need an mbox_df object for this function: Convert your mbox file through `read_mbox()` first.")
-}
+  if (!inherits(mbox_df, "mbox_df")) {
+    stop("You need an mbox_df object for this function: Convert your mbox file through `read_mbox()` first.")
+  }
 
   mbox_df %>%
-is_thread() %>%
-sum(., na.rm = TRUE)
+    is_thread() %>%
+    sum(., na.rm = TRUE)
 }
 
 
@@ -44,9 +44,9 @@ sum(., na.rm = TRUE)
 #' @export
 
 is_thread <- function(mbox_df) {
-if(!inherits(mbox_df, "mbox_df")) {
-stop("You need an mbox_df object for this function: Convert your mbox file through `read_mbox()` first.")
-}
+  if (!inherits(mbox_df, "mbox_df")) {
+    stop("You need an mbox_df object for this function: Convert your mbox file through `read_mbox()` first.")
+  }
 
   mbox_df$num_discussants > 1
 }

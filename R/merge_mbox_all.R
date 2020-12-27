@@ -38,17 +38,17 @@ merge_mbox_all <-
   function(path = ".", file = NULL) { # Function starts:
 
     if (length(list.files(path, pattern = "(*.mbox)$")) > 0) {
-#      if (path != ".") {
-#        current_wd <- getwd()
-#        setwd(path)
-#      }
+      #      if (path != ".") {
+      #        current_wd <- getwd()
+      #        setwd(path)
+      #      }
 
       multi_mbox <- list.files(path, pattern = "(*.mbox)$") %>%
         purrr::map_df(~ mboxr::read_mbox(.))
 
-#      if (path != ".") {
-#        setwd(current_wd)
-#      }
+      #      if (path != ".") {
+      #        setwd(current_wd)
+      #      }
 
       if (!is.null(file)) {
         fileExt <- tolower(tools::file_ext(file))
@@ -61,7 +61,7 @@ merge_mbox_all <-
         }
       }
 
-class(multi_mbox) <- c("mbox_df", class(multi_mbox))
+      class(multi_mbox) <- c("mbox_df", class(multi_mbox))
       return(multi_mbox)
     } else {
       stop("No mbox file is found in the current directory.")
