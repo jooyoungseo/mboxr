@@ -1,6 +1,8 @@
 mboxr
 =====
 
+* **Deprecation note**: This package is no longer actively maintained.
+
 <!-- badges: start -->
 
 [![CRAN
